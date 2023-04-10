@@ -4,24 +4,15 @@
 
 int get_missing_number(int arr[], int size)
 {
-    int temp[size + 2] ;
-    int missing_num;
-
-    for (int i = 0 ; i < size + 2 ; i++)
-        temp[i] = 0;
-
-    for(int i = 0 ; i < size ; i++)
+    int N = size + 1 ;
+    int total = N * (N + 1) / 2 ;
+    
+    for (int i = 0 ; i < size ; i++)
     {
-        temp[arr[i]] = 1;
+        total -= arr[i];
     }
 
-    for (int i = 1 ; i < size + 2 ; i++)
-    {
-        if(temp[i] == 0)
-            missing_num = i;
-    }
-
-    return missing_num;
+    return total;
 }
 
 
