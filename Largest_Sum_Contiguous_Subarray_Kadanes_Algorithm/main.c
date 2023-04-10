@@ -1,32 +1,47 @@
 #include <stdio.h>
 
 
+// int largest_contiguous_sum(int arr[], int size)
+// {
+//     int sum = 0, max = arr[0];
+    
+//     for (int i = 0 ; i < size ; i++)
+//     {
+//         for(int j = i ; j < size ; j++)
+//         {
+//             sum += arr[j];
+//             if(sum > max)
+//             {
+//                 max = sum;
+//             }
+//         }
+        
+//         sum = 0;
+//     }
+    
+//     return max;
+// }
 int largest_contiguous_sum(int arr[], int size)
 {
     int sum = 0, max = arr[0];
-    
     for (int i = 0 ; i < size ; i++)
     {
-        for(int j = i ; j < size ; j++)
-        {
-            sum += arr[j];
-            if(sum > max)
-            {
-                max = sum;
-            }
-        }
+        sum += arr[i];
+
+        if(sum > max)
+            max = sum;
         
-        sum = 0;
+        if(sum < 0)
+            sum = 0;
     }
-    
+
     return max;
 }
-
 
 // Driver Code
 int main()
 {
-    int a[] = { -2, -3, -4, -1, -2, -1, -5, -3 };
+    int a[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
     int n = sizeof(a) / sizeof(a[0]);
  
     // Function Call
